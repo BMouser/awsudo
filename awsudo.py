@@ -21,7 +21,7 @@ def parse_arguments(argv):
     """Parse CLI arguments."""
     parser = argparse.ArgumentParser(description=CLI_DESCRIPTION)
 
-    parser.add_argument('profile_name', help='Name of the AWS profile.')
+    parser.add_argument('profile_name', nargs='?', default='default', help='Name of the AWS profile.')
     parser.add_argument('executable', nargs='?',
                         help='Executable to run with credentials.')
     parser.add_argument('arguments', metavar='argument', nargs='*',
@@ -40,7 +40,7 @@ def get_credentials(profile_name):
     return {
         'AWS_ACCESS_KEY_ID': credentials.access_key,
         'AWS_SECRET_ACCESS_KEY': credentials.secret_key,
-        'AWS_SESSION_TOKEN': credentials.token,
+        'AWS_SESSION_TOKEN': credentials.token or '',
     }
 
 

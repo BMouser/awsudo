@@ -2,6 +2,11 @@
 CHANGELOG
 =========
 
+0.2.1
+=====
+
+* Add support for fzf
+
 0.2.0
 =====
 
